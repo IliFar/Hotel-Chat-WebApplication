@@ -1,2 +1,2 @@
 # Hotel-Chat-WebApplication
-A Chat Web Application Using Asp.Net and SignalR
+A Chat Web Application Using Asp.Net Core Web Api, Blazor and SignalR
