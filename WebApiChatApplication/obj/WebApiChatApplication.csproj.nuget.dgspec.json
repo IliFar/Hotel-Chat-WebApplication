@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\WebApiChatApplication.csproj": {}
+    "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\WebApiChatApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\WebApiChatApplication.csproj": {
+    "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\WebApiChatApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\WebApiChatApplication.csproj",
+        "projectUniqueName": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\WebApiChatApplication.csproj",
         "projectName": "WebApiChatApplication",
-        "projectPath": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\WebApiChatApplication.csproj",
+        "projectPath": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\WebApiChatApplication.csproj",
         "packagesPath": "C:\\Users\\ilias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\obj\\",
+        "outputPath": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ilias\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.SignalR": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
