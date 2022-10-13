@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "brSlp2c3/uoYpkBNUVB0MOsuTx8+fYcvrZd2hweDAcw0JHYHvOz5Dh222RSsekhAzC79M+Um4FAAcWDOKEenag==",
+  "dgSpecHash": "AHFv6Cv9SDhv/GARBpC6Gg1DgRzev6oU4vfBl1/fwd76Zcmw57qaiSR4ZhAd8H4JbvJ8C/JaTdq/fNw1ricUWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\WebApiChatApplication.csproj",
+  "projectFilePath": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\WebApiChatApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ilias\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ilias\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
