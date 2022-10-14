@@ -9,7 +9,12 @@ A Chat Web Application Using <code>Asp.Net Core Web Api</code>, <code>React</cod
 > Users will be able to choose a room in question to chat about. See what information a specific room has. Enter a room chat started by other users and sort rooms by their name and status. Users should also be able to mark a room as done when the work in that room is done.
 
 # Project Kanban Board
+
+<a href="https://trello.com/b/LgAW9s0l/chat-web-application-project">Trello Kanban Board</a>
+
 <p align="center">
-  <img src="KanbanBoard1.5.png" width="350" alt="kanban Board">
+  <img src="KanbanBoard1.png" width="350" alt="kanban Board">
   <img src="KanbanBoard1.5.png" width="350" alt="Kanban Board">
 </p>
+
+
