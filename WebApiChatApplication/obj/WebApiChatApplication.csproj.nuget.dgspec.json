@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\WebApiChatApplication.csproj": {}
+    "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\WebApiChatApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\WebApiChatApplication.csproj": {
+    "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\WebApiChatApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\WebApiChatApplication.csproj",
+        "projectUniqueName": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\WebApiChatApplication.csproj",
         "projectName": "WebApiChatApplication",
-        "projectPath": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\WebApiChatApplication.csproj",
+        "projectPath": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\WebApiChatApplication.csproj",
         "packagesPath": "C:\\Users\\ilias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\webapichatapplication\\obj\\",
+        "outputPath": "C:\\Users\\ilias\\Desktop\\Webbutvecklare\\Courses\\Real-Time-Apps\\Hotel-Chat-WebApplication\\WebApiChatApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ilias\\AppData\\Roaming\\NuGet\\NuGet.Config",
