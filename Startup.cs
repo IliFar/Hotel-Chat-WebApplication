@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApiChatApplication.Models;
 
 namespace WebApiChatApplication
 {
@@ -32,9 +33,7 @@ namespace WebApiChatApplication
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApiChatApplication", Version = "v1" });
             });
-
-            //test
-            //qwer
+            services.AddScoped<IRoomRepository, MockRoomRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
