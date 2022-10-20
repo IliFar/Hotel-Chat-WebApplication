@@ -6,7 +6,10 @@
   "dependencies": {
     "react": "^18.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "process": "^0.11.10"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
