@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApiChatApplication.Hubs;
+using WebApiChatApplication.Models;
 
 namespace WebApiChatApplication
 {
@@ -32,9 +34,12 @@ namespace WebApiChatApplication
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApiChatApplication", Version = "v1" });
             });
-
-            //test
-            //qwer
+            services.AddScoped<IRoomRepository, MockRoomRepository>();
+            services.AddSignalR();
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +54,8 @@ namespace WebApiChatApplication
 
             app.UseHttpsRedirection();
 
+            app.UseCors("MyPolicy");
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -56,6 +63,7 @@ namespace WebApiChatApplication
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<Chathub>("/chat");
             });
         }
     }
