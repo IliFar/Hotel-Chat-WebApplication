@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApiChatApplication.Hubs;
 using WebApiChatApplication.Models;
 
 namespace WebApiChatApplication
@@ -62,6 +63,7 @@ namespace WebApiChatApplication
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<Chathub>("/chat");
             });
         }
     }
