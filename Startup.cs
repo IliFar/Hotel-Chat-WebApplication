@@ -53,6 +53,8 @@ namespace WebApiChatApplication
 
             app.UseHttpsRedirection();
 
+            app.UseCors("MyPolicy");
+
             app.UseRouting();
 
             app.UseAuthorization();
