@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import "./Rooms.css";
 
 const Rooms = () => {
   const [rooms, setRooms] = React.useState([]);
@@ -20,17 +21,18 @@ const Rooms = () => {
   }, []);
 
   return (
-    <div>
-      {rooms.map((room) => (
-        <>
-          <div
-            onClick={() => {
-              navigate(`room/${room.id}`);
-            }}
-          >
-            {room.name}
-          </div>
-        </>
+    <div className="rooms-container">
+      {rooms.map((room, index) => (
+        <div
+          key={index}
+          className="rooms"
+          onClick={() => {
+            navigate(`room/${room.id}`);
+          }}
+        >
+          {room.name}
+          <button className="enter-room">Enter Room</button>
+        </div>
       ))}
     </div>
   );
