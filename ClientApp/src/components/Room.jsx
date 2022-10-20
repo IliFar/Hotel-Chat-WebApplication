@@ -2,12 +2,14 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 import axios from "axios";
+import Chat from "./Chat";
 
 const Room = () => {
   const [roomById, setRoomById] = React.useState({});
   const [user, setUser] = React.useState();
   const [room, setRoom] = React.useState();
   const [connection, setConnection] = React.useState();
+  const [messages, setMessages] = React.useState([]);
 
   let params = useParams();
 
@@ -33,9 +35,10 @@ const Room = () => {
         .configureLogging(LogLevel.Information)
         .build();
 
-      connection.on("RecieveMessage", (message) => {
-        // setMessages(messages => [...messages, {user, message}])
+      connection.on("RecieveMessage", (user, message) => {
+        setMessages((messages) => [...messages, { user, message }]);
         console.log("Message recieved", message);
+        console.log("Message recieved2", user);
       });
 
       console.log(room.name);
@@ -48,9 +51,17 @@ const Room = () => {
     }
   };
 
+  const sendMessage = async (message) => {
+    try {
+        await connection.invoke("SendMessage", message);
+    } catch (error) {
+        console.log(error);
+    }
+  }
+
   React.useEffect(() => {
-    getRoomById()
-  }, [])
+    getRoomById();
+  }, []);
   return (
     <div>
       {roomById.name}
@@ -69,7 +80,7 @@ const Room = () => {
           <button type="submit">Join</button>
         </form>
       ) : (
-        user
+        <Chat messages={messages} sendMessage={sendMessage}/>
       )}
     </div>
   );
