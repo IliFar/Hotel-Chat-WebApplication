@@ -35,7 +35,7 @@ const Room = () => {
         .configureLogging(LogLevel.Information)
         .build();
 
-      connection.on("RecieveMessage", (user, message) => {
+      connection.on("ReceiveMessage", (user, message) => {
         setMessages((messages) => [...messages, { user, message }]);
         console.log("Message recieved", message);
         console.log("Message recieved2", user);
@@ -46,6 +46,7 @@ const Room = () => {
       await connection.start();
       await connection.invoke("JoinRoom", { user, room });
       setConnection(connection);
+      console.log(connection);
     } catch (error) {
       console.log(error);
     }
@@ -53,11 +54,12 @@ const Room = () => {
 
   const sendMessage = async (message) => {
     try {
-        await connection.invoke("SendMessage", message);
+      console.log(connection);
+      await connection.invoke("SendMessage", message);
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
-  }
+  };
 
   React.useEffect(() => {
     getRoomById();
@@ -80,7 +82,7 @@ const Room = () => {
           <button type="submit">Join</button>
         </form>
       ) : (
-        <Chat messages={messages} sendMessage={sendMessage}/>
+        <Chat messages={messages} sendMessage={sendMessage} />
       )}
     </div>
   );
