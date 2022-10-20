@@ -2,7 +2,8 @@
   "name": "clientapp",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "source": "index.js",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -13,7 +14,9 @@
     "process": "^0.11.10"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel public/index.html",
+    "build": "parcel build"
   },
   "author": "",
   "license": "ISC"
