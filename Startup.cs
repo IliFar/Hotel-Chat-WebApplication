@@ -34,6 +34,7 @@ namespace WebApiChatApplication
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApiChatApplication", Version = "v1" });
             });
             services.AddScoped<IRoomRepository, MockRoomRepository>();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
