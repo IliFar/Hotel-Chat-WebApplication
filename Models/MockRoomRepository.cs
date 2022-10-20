@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace WebApiChatApplication.Models
 {
@@ -50,6 +51,16 @@ namespace WebApiChatApplication.Models
                     Todo = todos,
                 }
             };
+
+        }
+
+        public IEnumerable<Room> GetAll()
+        {
+            return rooms.ToList();
+        }
+        public Room GetRoomById(int id)
+        {
+            return rooms.FirstOrDefault(r => r.Id == id);
         }
     }
 }
