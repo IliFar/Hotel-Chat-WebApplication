@@ -40,6 +40,7 @@ namespace WebApiChatApplication
             {
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
+            services.AddSingleton<IDictionary<string, UserConnection>>(o => new Dictionary<string, UserConnection>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
