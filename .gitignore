@@ -136,3 +136,4 @@ msbuild.err
 msbuild.wrn
 
 .vs/
+.parcel-cache/
