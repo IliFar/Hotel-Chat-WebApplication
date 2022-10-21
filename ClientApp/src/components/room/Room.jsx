@@ -2,7 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 import axios from "axios";
-import Chat from "./Chat";
+import Chat from "../chat/Chat";
+import "./Room.css";
 
 const Room = () => {
   const [roomById, setRoomById] = React.useState({});
@@ -65,21 +66,19 @@ const Room = () => {
     getRoomById();
   }, []);
   return (
-    <div>
-      {roomById.name}
+    <div className="room">
+      <h1 className="room-name">{roomById.name}</h1>
       {!connection ? (
-        <form onSubmit={joinRoom}>
+        <form onSubmit={joinRoom} className="join-form">
           <input
+            className="username-input"
             type="text"
             placeholder="name"
             onChange={(e) => setUser(e.target.value)}
           />
-          {/* <input
-          type="text"
-          placeholder="room"
-          onChange={(e) => setRoom(e.target.value)}
-        /> */}
-          <button type="submit">Join</button>
+          <button type="submit" className="join-btn">
+            Join
+          </button>
         </form>
       ) : (
         <Chat messages={messages} sendMessage={sendMessage} />

@@ -1,0 +1,41 @@
+.room {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    .room-name {
+        color: white;
+        padding: 10px;
+    }
+    .join-form {
+        height: 200px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-around;
+        .username-input {
+            height: 30%;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            border: 2px solid black;
+            font-size: 20px;
+            &::placeholder {
+                font-size: 20px;
+            }
+        }
+        .join-btn {
+            padding:0.3em 1.2em;
+            border-radius: 0 0 10px 10px;
+            font-family:'Roboto',sans-serif;
+            font-weight:bold;
+            font-size: 20px;
+            color:#FFFFFF;
+            background-color:#fba92c;
+            text-align:center;
+            transition: all 0.2s;
+            width: 100%;
+            height: 30%;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.chat{
+    background-color: white;
+    height: 300px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:flex-end;
+    padding: 10px 10px 0 10px;
+
+    .message-form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        .message-input {
+            height: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid black;
+            font-size: 20px;
+            width: 89%;
+            &::placeholder {
+                font-size: 20px;
+            }
+        }
+        .send-btn {
+            padding:0.3em 1.2em;
+            border-radius:10px;
+            font-family:'Roboto',sans-serif;
+            font-weight:bold;
+            font-size: 20px;
+            color:#FFFFFF;
+            background-color:#fba92c;
+            text-align:center;
+            transition: all 0.2s;
+            min-width: 10%;
+            height: 100%;
+        }
+    }
+}
