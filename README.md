@@ -13,8 +13,8 @@ A Chat Web Application Using <code>Asp.Net Core Web Api</code>, <code>React</cod
 <a href="https://trello.com/b/LgAW9s0l/chat-web-application-project">Trello Kanban Board</a>
 
 <p align="center">
-  <img src="KanbanBoard1.png" width="350" alt="kanban Board">
-  <img src="KanbanBoard1.5.png" width="350" alt="Kanban Board">
+  <img src="Planning/KanbanBoard/KanbanBoard2.png" width="350" alt="kanban Board">
+  <img src="Planning/KanbanBoard/KanbanBoard2.5.png" width="350" alt="Kanban Board">
 </p>
 
 
