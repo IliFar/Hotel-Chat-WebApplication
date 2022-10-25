@@ -1,0 +1,7 @@
+.messages {
+  height: 550px;
+  overflow: auto;
+}
+.messages .message {
+  word-break: break-all;
+}/*# sourceMappingURL=Message.css.map */
