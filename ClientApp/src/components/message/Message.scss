@@ -1,0 +1,7 @@
+.messages {
+    height: 550px;
+    overflow: auto;
+    .message {
+        word-break: break-all;
+    }
+}
