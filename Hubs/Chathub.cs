@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WebApiChatApplication.Models;
@@ -12,6 +13,17 @@ namespace WebApiChatApplication.Hubs
         public Chathub(IDictionary<string, UserConnection> connections)
         {
             this.connections = connections;
+        }
+
+        public override Task OnDisconnectedAsync(Exception exception)
+        {
+            if (connections.TryGetValue(Context.ConnectionId, out UserConnection userConnection))
+            {
+                connections.Remove(Context.ConnectionId);
+                Clients.Group(userConnection.Room).SendAsync("ReceiveMessage", $"{userConnection.User} has left the room");
+            }
+
+            return base.OnDisconnectedAsync(exception);
         }
 
         public async Task JoinRoom(UserConnection userConnection)
