@@ -21,10 +21,11 @@ const Rooms = () => {
 
   return (
     <div className="rooms-container row mt-5 gap-3 h-100 justify-content-center">
+      
       {rooms.map((room, index) => (
         <div
           key={index}
-          className="rooms card text-center col-md-4"
+          className="rooms card text-center w-75 col-md-4"
           onClick={() => {
             navigate(`room/${room.id}`);
           }}
