@@ -6,7 +6,6 @@
     border: 0;
     outline: 0;
     box-sizing: border-box;
-    list-style: none;
     text-decoration: none;
 }
 
@@ -31,6 +30,3 @@ h1,h2,h3,h4,h5 {
 h1 {
     font-size: 2rem;
 }
-/* #root {
-    background-color: #0e0e0e;
-} */
