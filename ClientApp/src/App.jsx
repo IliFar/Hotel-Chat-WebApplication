@@ -1,16 +1,12 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Room from "./components/room/Room";
 import Rooms from "./components/rooms/Rooms";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 
 const App = () => {
-  const joinRoom = async (user, room, setConnection, setMessages) => {
+  const joinRoom = async (user, room, setConnection, setMessages, setUsers) => {
     try {
       const connection = new HubConnectionBuilder()
         .withUrl("https://localhost:5001/chat", {
@@ -19,15 +15,21 @@ const App = () => {
         .configureLogging(LogLevel.Information)
         .build();
 
+      connection.on("UsersInRoom", (users) => {
+        console.log("users", users);
+        setUsers(users);
+      });
+
       connection.on("ReceiveMessage", (user, message) => {
         setMessages((messages) => [...messages, { user, message }]);
         console.log("Message recieved", message);
         console.log("Message recieved2", user);
       });
 
-      connection.onclose(e => {
+      connection.onclose((e) => {
         setConnection();
-        setMessages([])
+        setMessages([]);
+        setUsers([]);
       });
 
       console.log(room.name);
@@ -64,7 +66,13 @@ const App = () => {
           <Route path="/" element={<Rooms />} />
           <Route
             path="room/:id"
-            element={<Room joinRoom={joinRoom} sendMessage={sendMessage} closeConnection={closeConnection}/>}
+            element={
+              <Room
+                joinRoom={joinRoom}
+                sendMessage={sendMessage}
+                closeConnection={closeConnection}
+              />
+            }
           />
         </Routes>
       </Router>
