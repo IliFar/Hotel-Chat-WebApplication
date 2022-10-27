@@ -1,51 +1,57 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
 import Chat from "../chat/Chat";
+import { AppContext } from "../../../context/Data";
 
-const Room = ({ joinRoom, sendMessage, closeConnection }) => {
-  const [user, setUser] = React.useState();
-  const [roomById, setRoomById] = React.useState({});
-  const [room, setRoom] = React.useState();
-  const [connection, setConnection] = React.useState();
-  const [messages, setMessages] = React.useState([]);
-  const [users, setUsers] = React.useState([]);
-
-  let params = useParams();
+const Room = () => {
+  const {
+    roomById,
+    connection,
+    getRoomById,
+    setUser,
+    joinRoom,
+    users,
+    closeConnection,
+    setShow,
+  } = React.useContext(AppContext);
 
   const url = "https://localhost:5001/api/rooms";
 
-  const getRoomById = async () => {
-    await axios.get(`${url}/${params.id}`).then((res) => {
-      const roomById = res.data;
-      setRoomById(roomById);
-      setRoom(roomById.name);
-      console.log("roomname", roomById.name);
-      console.log(roomById);
-    });
-  };
-
   React.useEffect(() => {
     getRoomById();
-  }, [messages]);
+  }, []);
 
   return (
-    <div className="room container mt-5">
-      <h1 className="room-name text-white mb-5">{roomById.name}</h1>
+    <div className="room container ">
+      <h1 className="room-name text-white mb-3">{roomById.name}</h1>
 
       {connection && (
-        <button
-          className="btn btn-danger mb-3"
-          onClick={() => closeConnection(connection)}
-        >
-          Leave Room
-        </button>
+        <>
+          <h5 className="text-white">Users in Room :</h5>
+          <ol >
+            {users.map((user, index) => (
+              <li key={index} className="text-white">
+                {user}
+              </li>
+            ))}
+          </ol>
+          <button
+            className="btn btn-danger mb-3"
+            onClick={() => {
+              closeConnection(connection);
+              setShow(false);
+            }}
+          >
+            Leave Room
+          </button>
+        </>
       )}
       {!connection ? (
+        <>
+        <h3 className="text-white">Join this room</h3>
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            joinRoom(user, room, setConnection, setMessages, setUsers);
+            joinRoom();
           }}
           className="join-form justify-content-center"
         >
@@ -61,18 +67,10 @@ const Room = ({ joinRoom, sendMessage, closeConnection }) => {
             </button>
           </div>
         </form>
+        </>
       ) : (
         <>
-          {users.map((user, index) => (
-            <div key={index} className="text-white">
-              {user}
-            </div>
-          ))}
-          <Chat
-            messages={messages}
-            sendMessage={sendMessage}
-            connection={connection}
-          />
+          <Chat />
         </>
       )}
     </div>
