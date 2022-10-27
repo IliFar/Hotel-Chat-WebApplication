@@ -9,6 +9,7 @@ const Room = ({ joinRoom, sendMessage, closeConnection }) => {
   const [room, setRoom] = React.useState();
   const [connection, setConnection] = React.useState();
   const [messages, setMessages] = React.useState([]);
+  const [users, setUsers] = React.useState([]);
 
   let params = useParams();
 
@@ -31,6 +32,7 @@ const Room = ({ joinRoom, sendMessage, closeConnection }) => {
   return (
     <div className="room container mt-5">
       <h1 className="room-name text-white mb-5">{roomById.name}</h1>
+
       {connection && (
         <button
           className="btn btn-danger mb-3"
@@ -43,7 +45,7 @@ const Room = ({ joinRoom, sendMessage, closeConnection }) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            joinRoom(user, room, setConnection, setMessages);
+            joinRoom(user, room, setConnection, setMessages, setUsers);
           }}
           className="join-form justify-content-center"
         >
@@ -60,11 +62,18 @@ const Room = ({ joinRoom, sendMessage, closeConnection }) => {
           </div>
         </form>
       ) : (
-        <Chat
-          messages={messages}
-          sendMessage={sendMessage}
-          connection={connection}
-        />
+        <>
+          {users.map((user, index) => (
+            <div key={index} className="text-white">
+              {user}
+            </div>
+          ))}
+          <Chat
+            messages={messages}
+            sendMessage={sendMessage}
+            connection={connection}
+          />
+        </>
       )}
     </div>
   );
