@@ -1,9 +1,11 @@
 import React from "react";
+import { AppContext } from "../../../context/Data";
 import Message from "../message/Message";
 import "./Chat.css";
 
-const Chat = ({ messages, sendMessage, connection }) => {
-  const [message, setMessage] = React.useState("");
+const Chat = () => {
+  const { message, messages, setMessage, sendMessage, connection, roomById } =
+    React.useContext(AppContext);
 
   return (
     <div className="chat container d-flex flex-column bg-white gap-3">
