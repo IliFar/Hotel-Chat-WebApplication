@@ -1,6 +1,4 @@
 import React from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import Room from "../room/Room";
 import { AppContext } from "../../../context/Data";
 
