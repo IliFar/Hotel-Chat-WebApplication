@@ -26,6 +26,7 @@ const Room = () => {
 
       {connection && (
         <>
+          <p className="text-white border border-2 rounded-3 bg-success p-2">Type @ in the message box to mention a task.</p>
           <h5 className="text-white">Users in Room :</h5>
           <ol >
             {users.map((user, index) => (
