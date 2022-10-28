@@ -2,8 +2,10 @@ import React from "react";
 import "./Message.css";
 
 const Message = ({ messages }) => {
-  const messageRef = React.useRef();
+  
+  const messageRef = React.useRef(); //Create a react Ref
 
+  // Logic to scroll to the latest message in this component
   React.useEffect(() => {
     if (messageRef && messageRef.current) {
       const { scrollHeight, clientHeight } = messageRef.current;
