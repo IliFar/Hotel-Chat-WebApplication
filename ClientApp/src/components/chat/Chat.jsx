@@ -8,10 +8,9 @@ const Chat = () => {
   const { message, messages, setMessage, sendMessage, connection, roomById } =
     React.useContext(AppContext);
 
-    const todos = roomById.todo.map((todo, i) => {
-      return { id: i, display: todo.title };
-    });
-
+  const todos = roomById.todo.map((todo, i) => {
+    return { id: i, display: todo.title };
+  });
 
   return (
     <div className="chat container d-flex flex-column bg-white gap-3">
@@ -33,9 +32,13 @@ const Chat = () => {
             value={message}
             onKeyDown={(e) => e.target.value}
             singleLine={true}
-            inputRef={messageRef}
           >
-            <Mention trigger="@" data={todos} markup="@__display__" />
+            <Mention
+              trigger="@"
+              data={todos}
+              markup="@__display__"
+              className="h-75"
+            />
           </MentionsInput>
           <button
             type="submit"
