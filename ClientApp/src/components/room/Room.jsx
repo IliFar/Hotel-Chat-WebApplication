@@ -11,7 +11,7 @@ const Room = () => {
     joinRoom,
     users,
     closeConnection,
-    setShow,
+    setShowRoom,
   } = React.useContext(AppContext);
 
   const url = "https://localhost:5001/api/rooms";
@@ -39,7 +39,7 @@ const Room = () => {
             className="btn btn-danger mb-3"
             onClick={() => {
               closeConnection(connection);
-              setShow(false);
+              setShowRoom(false);
             }}
           >
             Leave Room

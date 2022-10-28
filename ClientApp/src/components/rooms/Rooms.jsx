@@ -3,12 +3,12 @@ import Room from "../room/Room";
 import { AppContext } from "../../../context/Data";
 
 const Rooms = () => {
-  const { rooms, setId, show, setShow } = React.useContext(AppContext);
+  const { rooms, setId, showRoom, setShowRoom } = React.useContext(AppContext);
 
   return (
     <div className="rooms-container container mt-3 h-100 ">
       <div className="row justify-content-center gap-3">
-        {!show ? (
+        {!showRoom ? (
           <>
             <h1 className="text-white text-center">Enter a room</h1>
             {rooms.map((room, index) => (
@@ -16,7 +16,7 @@ const Rooms = () => {
                 key={index}
                 className="rooms card text-center w-md-75  col-md-4"
                 onClick={() => {
-                  setShow(true);
+                  setShowRoom(true);
                   setId(room.id);
                 }}
               >

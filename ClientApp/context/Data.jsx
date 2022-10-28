@@ -14,7 +14,7 @@ const Data = (props) => {
   const [rooms, setRooms] = React.useState([]);
   const [message, setMessage] = React.useState("");
   const [id, setId] = React.useState();
-  const [show, setShow] = React.useState(false);
+  const [showRoom, setShowRoom] = React.useState(false);
 
   const joinRoom = async () => {
     try {
@@ -115,8 +115,8 @@ const Data = (props) => {
           setMessage,
           sendMessage,
           closeConnection,
-          show,
-          setShow,
+          showRoom,
+          setShowRoom,
         }}
       >
         {props.children}
