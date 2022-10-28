@@ -78,6 +78,7 @@ const Data = (props) => {
   const getRooms = async () => {
     await axios.get(url).then((res) => {
       const data = res.data;
+      console.log(data);
       setRooms(data);
     });
   };
