@@ -16,6 +16,7 @@ const Data = (props) => {
   const [id, setId] = React.useState();
   const [showRoom, setShowRoom] = React.useState(false);
 
+  /* */
   const joinRoom = async () => {
     try {
       const connection = new HubConnectionBuilder()
@@ -25,18 +26,20 @@ const Data = (props) => {
         .configureLogging(LogLevel.Information)
         .build();
 
+      // Handlder to get all users in a room and save it in setUsers state  
       connection.on("UsersInRoom", (users) => {
         console.log("users", users);
         setUsers(users);
       });
 
-    
+      // Handler to get all messages and the user who send the message, and save it to setMessages state
       connection.on("ReceiveMessage", (user, message) => {
         setMessages((messages) => [...messages, { user, message }]);
         console.log("Message recieved", message);
         console.log("Message recieved2", user);
       });
 
+      
       connection.onclose((e) => {
         setConnection();
         setMessages([]);
@@ -53,8 +56,6 @@ const Data = (props) => {
       console.log(error);
     }
   };
-
- 
 
   const closeConnection = async () => {
     try {

@@ -3,12 +3,13 @@ import Room from "../room/Room";
 import { AppContext } from "../../../context/Data";
 
 const Rooms = () => {
+  //Use AppContext to get all necessary data
   const { rooms, setId, showRoom, setShowRoom } = React.useContext(AppContext);
 
   return (
     <div className="rooms-container container mt-3 h-100 ">
       <div className="row justify-content-center gap-3">
-        {!showRoom ? (
+        {!showRoom ? (  // If showRoom is false => show all rooms Else when a room is clicked, set the showRoom state to true and show the clicked Room
           <>
             <h1 className="text-white text-center">Enter a room</h1>
             {rooms.map((room, index) => (
@@ -30,7 +31,7 @@ const Rooms = () => {
             ))}
           </>
         ) : (
-          <Room />
+          <Room /> //Show room when showRoom state is true
         )}
       </div>
     </div>

@@ -5,9 +5,12 @@ import { MentionsInput, Mention } from "react-mentions";
 import "./Chat.css";
 
 const Chat = () => {
-  const { message, messages, setMessage, sendMessage, connection, roomById } =
-    React.useContext(AppContext);
 
+  //Use AppContext to get all necessary data
+  const { message, messages, setMessage, sendMessage, connection, roomById } =
+    React.useContext(AppContext); 
+
+  // Create a const to return the data needed for the react mentions, this data is from the REST API (each room has a todo list)
   const todos = roomById.todo.map((todo, i) => {
     return { id: i, display: todo.title };
   });
@@ -24,6 +27,7 @@ const Chat = () => {
         }}
       >
         <div className="input-group">
+          {/*React MentionsInput from the React Mentions Library */} 
           <MentionsInput
             className="message-input form-control "
             type="text"
