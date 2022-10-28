@@ -22,7 +22,7 @@ const Chat = () => {
         className="message-form mt-auto mb-2"
         onSubmit={(e) => {
           e.preventDefault();
-          sendMessage(message, connection);
+          sendMessage();
           setMessage("");
         }}
       >
