@@ -15,6 +15,7 @@ const Data = (props) => {
   const [message, setMessage] = React.useState("");
   const [id, setId] = React.useState();
   const [showRoom, setShowRoom] = React.useState(false);
+  const [status, setStatus] = React.useState("Ongoing");
 
   /* */
   const joinRoom = async () => {
@@ -26,10 +27,14 @@ const Data = (props) => {
         .configureLogging(LogLevel.Information)
         .build();
 
-      // Handlder to get all users in a room and save it in setUsers state  
+      // Handlder to get all users in a room and save it in setUsers state
       connection.on("UsersInRoom", (users) => {
         console.log("users", users);
         setUsers(users);
+      });
+
+      connection.on("UpdatedStatus", (status) => {
+        setStatus("Done");
       });
 
       // Handler to get all messages and the user who send the message, and save it to setMessages state
@@ -39,7 +44,6 @@ const Data = (props) => {
         console.log("Message recieved2", user);
       });
 
-      
       connection.onclose((e) => {
         setConnection();
         setMessages([]);
@@ -52,6 +56,14 @@ const Data = (props) => {
       await connection.invoke("JoinRoom", { user, room });
       setConnection(connection);
       console.log(connection);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getStatus = async () => {
+    try {
+      await connection.invoke("SendStatusMessage", { status, user,  room });
     } catch (error) {
       console.log(error);
     }
@@ -118,6 +130,9 @@ const Data = (props) => {
           closeConnection,
           showRoom,
           setShowRoom,
+          getStatus,
+          status,
+          setStatus,
         }}
       >
         {props.children}

@@ -13,9 +13,10 @@ const Room = () => {
     users,
     closeConnection,
     setShowRoom,
+    getStatus,
+    status,
+    setStatus,
   } = React.useContext(AppContext);
-
-  const url = "https://localhost:5001/api/rooms";
 
   React.useEffect(() => {
     getRoomById();
@@ -47,6 +48,8 @@ const Room = () => {
           >
             Leave Room
           </button>
+          <p className="text-white">Status : {status}</p>
+          <button className="btn btn-primary mb-2" onClick={() => {getStatus()}}>Mark Room As Done</button>
         </>
       )}
       {!connection ? ( // When there is no connection show the form to join the room

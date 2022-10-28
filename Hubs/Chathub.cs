@@ -51,6 +51,15 @@ namespace WebApiChatApplication.Hubs
             await ConnectedUsers(userConnection.Room);
         }
 
+        public async Task SendStatusMessage(UserConnection userConnection)
+        {
+            connections[Context.ConnectionId] = userConnection;
+
+            await Clients.Group(userConnection.Room).SendAsync("ReceiveMessage", $"{userConnection.User} has set status to {userConnection.Status}");
+
+            await Clients.Group(userConnection.Room).SendAsync("UpdatedStatus", userConnection.Status);
+        }
+
         /*
         Checks if there is a user value in the connections dictionary.
         And Sends message and the user to the chosen group (room) 
