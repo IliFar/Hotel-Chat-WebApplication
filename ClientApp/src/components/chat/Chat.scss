@@ -1,3 +1,13 @@
 .chat{
     min-height: 600px;
+    background-color: #12dbe6;
+    .message-input__suggestions {
+        
+        .message-input__suggestions__item--focused {
+            
+                background-color: red;
+            
+            
+        }
+    }
 }

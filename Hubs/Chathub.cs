@@ -16,6 +16,12 @@ namespace WebApiChatApplication.Hubs
             this.connections = connections;
         }
 
+
+        /* 
+        Checks if there is a user in the connections dictionary and removes it from it. 
+        After that it sends a message to the group that the user is disconnected from the group
+        And calls the connectedUsers method
+        */
         public override Task OnDisconnectedAsync(Exception exception)
         {
             if (connections.TryGetValue(Context.ConnectionId, out UserConnection userConnection))
@@ -29,6 +35,11 @@ namespace WebApiChatApplication.Hubs
             return base.OnDisconnectedAsync(exception);
         }
 
+
+        /* 
+        Joins a user to a group (room) and sends a message to the group that the user has joined.
+        calls the ConnectedUsers method to keep track of all the connected users.
+        */
         public async Task JoinRoom(UserConnection userConnection)
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, userConnection.Room);
@@ -39,7 +50,12 @@ namespace WebApiChatApplication.Hubs
 
             await ConnectedUsers(userConnection.Room);
         }
-        public async Task SendMessage(string message)
+
+        /*
+        Checks if there is a user value in the connections dictionary.
+        And Sends message and the user to the chosen group (room) 
+        */
+        public async Task SendMessageToGroup(string message)
         {
             if (connections.TryGetValue(Context.ConnectionId, out UserConnection userConnection))
             {
@@ -47,6 +63,8 @@ namespace WebApiChatApplication.Hubs
             }
         }
 
+
+        // Gets all connected users, save them in a varibale and send them to clients in the group (room)
         public Task ConnectedUsers(string room)
         {
             var users = connections.Values
